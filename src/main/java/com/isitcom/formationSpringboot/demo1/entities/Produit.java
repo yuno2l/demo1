@@ -20,6 +20,10 @@ public class Produit {
 	private int qte;
 	private double prix;
 	@ManyToOne
+	@JoinColumn(name = "categorie_id", foreignKey = @ForeignKey(name = "fk_produit_categorie"))
 	private Categorie categorie;
+
+
+
 	
 }

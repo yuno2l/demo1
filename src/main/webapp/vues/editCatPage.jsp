@@ -20,7 +20,7 @@
 		
 		<div class="card-body">
 		
-			<form class="form-inline" method="get" action="Controleur">
+			<form class="form-inline" method="get" action="/modcat">
 		  		
 		  			<div class="form-group row">
 			  			<label for="id" class="col-sm-2 col-form-label">Id: </label>
@@ -39,7 +39,7 @@
 		    		
 		    		
 		    		<div style="margin-left: 23%">
-    					<button type="submit" name="action" value="editCat" class="btn btn-primary mb-2">Sauvegarder</button>
+    					<button type="submit" name="action" value="editc" class="btn btn-primary mb-2">Sauvegarder</button>
 		    		</div>
 		  		
 			</form>

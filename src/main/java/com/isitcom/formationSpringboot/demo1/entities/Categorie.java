@@ -3,6 +3,8 @@ package com.isitcom.formationSpringboot.demo1.entities;
 
 import java.util.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,7 +21,8 @@ public class Categorie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nom;
-    @ManyToMany(mappedBy = "categorie", cascade = CascadeType.ALL)
+	@JsonIgnore
+	@ManyToMany(mappedBy = "categorie")
 	private List<Produit> liste;
 	
 }

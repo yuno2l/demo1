@@ -20,7 +20,7 @@
 		
 		<div class="card-body">
 		
-			<form class="form-inline" method="get" action="Controleur">
+			<form class="form-inline" method="get" action="/ajoutppage">
 		  		<div class="form-group row">
 		    		<label for="nom" class="col-sm-2 col-form-label">Nom: </label>
 		    		<div class="col-sm-10">
@@ -59,7 +59,7 @@
 		    	</div>
 		    	
 		    	<div style="margin-left: 26%;">
-    				<button type="submit" name="action" value="add" class="btn btn-primary mb-2">Ajouter</button>
+    				<button type="submit" name="action" value="ajouterpage" class="btn btn-primary mb-2">Ajouter</button>
 		    	</div>
 		  		
 			</form>

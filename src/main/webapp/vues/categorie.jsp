@@ -46,7 +46,7 @@
 			
   		</div>
   		<div style="text-align: left; margin-left: 33px;">
-  			<a href="Controleur?&action=addCatPage" class="btn btn-info fa fa-add"></a>
+  			<a href="ajoutc" class="btn btn-info fa fa-add"></a>
   		</div>
 	</form>
 
@@ -65,7 +65,7 @@
 			<td>
 				<div>
 					<a href="deleteCat/${p.id}" class="btn btn-danger fa fa-trash"></a>
-					<a href="Controleur?id=${p.id}&nom=${p.nom}&action=editCatPage" class="btn btn-warning fa fa-edit"></a>
+					<a href="updateCat/${p.id}" class="btn btn-warning fa fa-edit"></a>
 				</div>	
 			</td>
 		</tr>

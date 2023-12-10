@@ -20,12 +20,12 @@
 		
 		<div class="card-body">
 		
-			<form class="form-inline" method="get" action="Controleur">
+			<form class="form-inline" method="get" action="/modprod">
 		  		
 		  			<div class="form-group row">
 			  			<label for="id" class="col-sm-2 col-form-label">Id: </label>
-			  			<div class="col-sm-10">
-							<input type="text" id="i" name="id" value="${prodid}" readonly>
+			  			 <div class="col-sm-10">
+							<input type="text" id="i" name="idprod" value="${id}" readonly>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -53,15 +53,15 @@
 		    			<select name="categorie">
 		    				<c:forEach items="${categorie}" var="c">
 		    				
-					        <option value=${c.id} <c:if test="${produit.categorie.id==c.id}">selected="true"</c:if>>${c.nom}</option>
+					        <option value="${c.id}" <c:if test="${id eq c.id}">selected="true"</c:if>>${c.nom}</option>
 					        
 					        </c:forEach>
-      					</select>
+      					</select> 
 		    		</div>
 		    	</div>
 		    		
 		    		<div style="margin-left: 23%">
-    					<button type="submit" name="action" value="edit" class="btn btn-primary mb-2">Sauvegarder</button>
+    					<button type="submit" name="action" value="editp" class="btn btn-primary mb-2">Sauvegarder</button>
 		    		</div>
 		  		
 			</form>

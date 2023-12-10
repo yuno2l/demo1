@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.isitcom.formationSpringboot.demo1.DAO.CategorieRepo;
 import com.isitcom.formationSpringboot.demo1.entities.Categorie;
+import com.isitcom.formationSpringboot.demo1.entities.Produit;
 
 @Service
 public class ServiceCategorie implements IServiceCategorie {
@@ -37,8 +38,16 @@ public class ServiceCategorie implements IServiceCategorie {
 	@Override
 	public void deleteCategorie(Long id) {
 		// TODO Auto-generated method stub
-		cr.deleteById(id);
-		
+		//cr.deleteById(id);
+		Categorie categorie = cr.findById(id).orElse(null);
+
+	    if (categorie != null) {
+	        for (Produit produit : categorie.getListe()) {
+	            produit.setCategorie(null);
+	        }
+
+	        cr.deleteById(id);
+	    }
 	}
 
 	@Override
@@ -52,5 +61,7 @@ public class ServiceCategorie implements IServiceCategorie {
 		// TODO Auto-generated method stub
 		cr.save(p);
 	}
+	
+	
 
 }

@@ -19,6 +19,8 @@ public class ProduitControleur {
 	private IServiceProduit sp;
 	@Autowired
 	private IServiceCategorie sc;
+	
+	
 	@GetMapping("/produits")
 	public String getAllProducts(Model m)
 	{
@@ -60,4 +62,78 @@ public class ProduitControleur {
 			return "redirect:/categorie";
 		
 	}
+	
+	//--------------------------------------------------------NewProdEdit------------------------------------------------------------------\\
+	
+	@GetMapping("/updateProd/{id}")
+	public String updateProd(@PathVariable Long id, Model m) {
+		List<Categorie> listeCat = sc.getAllCategories();
+		m.addAttribute("categorie",listeCat);
+		//m.addAttribute("idprod",id);
+		
+		return "edit";
+	
+}
+	@GetMapping("/modprod")
+	public String editp(@RequestParam Long idprod, @RequestParam String nom, @RequestParam double prix, @RequestParam int qte, @RequestParam Categorie categorie)
+	{
+		Produit p = new Produit(idprod,nom,qte,prix,categorie);
+		sp.updateProduct(p);
+		return "redirect:/produits";
+		
+	}
+	//--------------------------------------------------------NewProdAdd------------------------------------------------------------------\\
+
+	@GetMapping("/ajoutp")
+	public String ajoutProduit(Model m) {
+		List<Categorie> listeCat = sc.getAllCategories();
+		m.addAttribute("categorie",listeCat);
+		return "add";
+		
+	}
+	@GetMapping("/ajoutppage")
+	public String ajouterpage(@RequestParam String nom,@RequestParam double prix, @RequestParam int qte, @RequestParam Categorie categorie) {
+		Produit p = new Produit();
+		p.setCategorie(categorie);
+		p.setNom(nom);
+		p.setPrix(prix);
+		p.setQte(qte);
+		sp.addProduit(p);
+		return "redirect:/produits";
+		
+	}
+	
+	//--------------------------------------------------------NewCatEdit------------------------------------------------------------------\\
+
+	
+	@GetMapping("/updateCat/{id}")
+	public String updateCat(@PathVariable Long id, Model m) {		
+		return "editCatPage";
+	
+}
+	@GetMapping("/modcat")
+	public String editc(@RequestParam Long id, @RequestParam String nom)
+	{
+		List<Produit> l= new ArrayList<>();
+		Categorie c = new Categorie(id,nom,l);
+		sc.updateCategorie(c);
+		return "redirect:/categorie";
+		
+	}
+	//--------------------------------------------------------NewCatAdd------------------------------------------------------------------\\
+	@GetMapping("/ajoutc")
+	public String ajoutCategorie(Model m) {
+		return "addCatPage";
+		
+	}
+	@GetMapping("/ajoutcpage")
+	public String ajouterpagec(@RequestParam String nom) {
+		Categorie c = new Categorie();
+		c.setNom(nom);
+		
+		sc.addCategorie(c);
+		return "redirect:/categorie";
+		
+	}
+	
 }

@@ -46,7 +46,7 @@
 			
   		</div>
   		<div style="text-align: left; margin-left: 33px;">
-  			<a href="Controleur?&action=addPage" class="btn btn-info fa fa-add"></a>
+  			<a href="ajoutp" class="btn btn-info fa fa-add"></a>
   		</div>
 	</form>
 
@@ -71,7 +71,9 @@
 			<td>
 				<div>
 					<a href="delete/${p.id}" class="btn btn-danger fa fa-trash"></a>
-					<a href="Controleur?id=${p.id}&nom=${p.nom}&prix=${p.prix}&qte=${p.qte}&action=editPage" class="btn btn-warning fa fa-edit"></a>
+					<a href="updateProd/${p.id}" class="btn btn-warning fa fa-edit"></a>
+					<!-- <a href="Controleur?id=${p.id}&nom=${p.nom}&prix=${p.prix}&qte=${p.qte}&action=editPage" class="btn btn-warning fa fa-edit"></a> -->
+					
 				</div>	
 			</td>
 		</tr>
